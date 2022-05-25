@@ -1,0 +1,21 @@
+{
+  "name": "fastinno-web",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "grunt",
+    "build": "grunt compile-production",
+    "tailwind-config-viewer": "npx tailwind-config-viewer"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.7",
+    "google-closure-compiler": "^20220502.0.0",
+    "grunt": "^1.5.3",
+    "grunt-contrib-clean": "^2.0.1",
+    "grunt-contrib-cssmin": "^4.0.0",
+    "grunt-contrib-htmlmin": "^3.1.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-postcss": "^0.9.0",
+    "load-grunt-tasks": "^5.1.0",
+    "tailwindcss": "^3.0.24"
+  }
+}
