@@ -28,7 +28,8 @@ module.exports = function(grunt) {
       options: {
         map: true, // inline sourcemaps
         processors: [
-          require('tailwindcss')()
+          require('tailwindcss')(),
+          require('autoprefixer')()
         ]
       },
       dist: {
@@ -38,6 +39,16 @@ module.exports = function(grunt) {
         dest: 'dist/styles/',
         ext: '.css'
       }
+    },
+
+    // Copy scripts source file
+    copy: {
+      main: {
+        expand: true,
+        cwd: 'src/scripts',
+        src: '**',
+        dest: 'dist/scripts/',
+      },
     },
 
     // HTML minifier
@@ -132,8 +143,8 @@ module.exports = function(grunt) {
   // Register Tasks
   grunt.registerTask('compile-javascript', ['closure-compiler'])
   grunt.registerTask('compile-tailwindcss', ['postcss'])
-  grunt.registerTask('compile-all', ['postcss', 'closure-compiler'])
-  grunt.registerTask('compile-production', ['postcss', 'closure-compiler', 'htmlmin', 'cssmin', 'rename-file-sources'])
+  grunt.registerTask('compile-all', ['copy', 'postcss', 'closure-compiler'])
+  grunt.registerTask('compile-production', ['compile-all', 'htmlmin', 'cssmin', 'rename-file-sources'])
 
   // Register Watcher Tasks
   grunt.registerTask('watch-javascript', ['watch:closure-compiler'])
