@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,38 @@
 
     <!-- STYLES -->
     <link href="/dist/styles/main.css" rel="stylesheet">
+    
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@200;400;800&display=swap" rel="stylesheet">
 
     <!-- SCRIPTS -->
     <script src="//unpkg.com/alpinejs" defer></script>
-    <script src="/dist/scripts/main.js" defer></script>
+    <script src="/dist/scripts/main.js"></script>
 
     <title>Fastinno</title>
 </head>
-<body class="flex flex-col">
+
+<body class="flex flex-col" x-data="application">
     <!-- the bar on the top, whatever that thing is called -->
-    <div class="flex w-auto h-12 m-auto mt-5">
-        <img class="w-8" src="./assets/logo.svg" alt="Company Logo">
+    <div class="flex w-full h-12 m-auto mt-5 max-w-2xl">
+        <img class="w-40" src="./assets/logo.svg" alt="Company Logo">
+        <div class="
+            bg-black h-[2px] flex-auto self-center my-auto mx-5 relative
+            after:absolute after:-top-[12px] after:-left-1 after:content-['◆'] 
+            before:absolute before:-top-[12px] before:-right-1 before:content-['◆']
+        "></div>
         <div class="flex h-full w-auto">
-            <span>
-                About
-            </span>
-            <span>
-                Portfolio
-            </span>
-            <span>
-                Solutions
-            </span>
-            <span>
-                Contact Us
-            </span>
+            <template x-for="menu in menus">
+                <button class="
+                    my-auto mx-2 
+                    first-of-type:ml-0 
+                    last-of-type:mr-0
+                " x-text="menu"></button>
+            </template>
         </div>
     </div>
 </body>
+
 </html>
