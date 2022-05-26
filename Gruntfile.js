@@ -152,5 +152,5 @@ module.exports = function(grunt) {
   grunt.registerTask('watch-all', ['watch:all'])
 
   // Register Default Tasks
-  grunt.registerTask('default', ['watch-all']);
+  grunt.registerTask('default', ['compile-all', 'watch-all']);
 }
