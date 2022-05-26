@@ -16,7 +16,6 @@ module.exports = function(grunt) {
         },
         options: {
           compilation_level: 'SIMPLE',
-          language_in: 'ECMASCRIPT5_STRICT',
           create_source_map: 'dist/scripts/main.min.js.map',
           output_wrapper: '(function(){\n%output%\n}).call(this)\n//# sourceMappingURL=main.min.js.map'
         }
