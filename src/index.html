@@ -8,7 +8,7 @@
 
     <!-- STYLES -->
     <link href="/dist/styles/main.css" rel="stylesheet">
-    
+
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,23 +21,91 @@
     <title>Fastinno</title>
 </head>
 
-<body class="flex flex-col" x-data="application">
-    <!-- the bar on the top, whatever that thing is called -->
-    <div class="flex w-full h-12 m-auto mt-5 max-w-2xl">
-        <img class="w-40" src="./assets/logo.svg" alt="Company Logo">
-        <div class="
-            bg-black h-[2px] flex-auto self-center my-auto mx-5 relative
-            after:absolute after:-top-[12px] after:-left-1 after:content-['◆'] 
-            before:absolute before:-top-[12px] before:-right-1 before:content-['◆']
-        "></div>
-        <div class="flex h-full w-auto">
-            <template x-for="menu in menus">
-                <button class="
-                    my-auto mx-2 
-                    first-of-type:ml-0 
-                    last-of-type:mr-0
-                " x-text="menu"></button>
-            </template>
+<body>
+    <!-- the cover as placeholder while the page is loading -->
+    <div id="cover" x-ignore>
+
+    </div>
+
+    <!-- the whole application (should be initialized by alpine first) -->
+    <div class="flex flex-col w-full h-full" x-data="application" x-cloak>
+        <!-- the bar on the top, whatever that thing is called -->
+        <div x-ref="topBar" x-model="isScrolled" class="flex w-full h-12 m-auto mt-5 fixed top-0 left-0 right-0"
+            :class="isScrolled ? 'max-w-full' : 'max-w-2xl'">
+            <img class="w-40" src="./assets/logo.svg" alt="Company Logo">
+            <div class="
+                bg-black h-[2px] flex-auto self-center my-auto mx-5 relative
+                after:absolute after:-top-[12px] after:-left-1 after:content-['◆'] 
+                before:absolute before:-top-[12px] before:-right-1 before:content-['◆']
+            "></div>
+            <div class="flex h-full w-auto">
+                <template x-for="menu in menus">
+                    <button class="
+                        my-auto mx-2 font-serif text-2xl text-accent-600 transition-transform
+                        hover:text-accent-900 hover:-translate-y-1 hover:after:opacity-100 hover:after:translate-y-0
+                        after:content-[''] after:w-full after:h-[4px] after:bg-sky-800 after:rounded-full after:-translate-y-2 after:block after:opacity-0 after:transition-transform
+                        first-of-type:ml-0 
+                        last-of-type:mr-0
+                    " x-text="menu"></button>
+                </template>
+            </div>
+        </div>
+
+        <!-- the content of the website, of course -->
+        <div class="whitespace-pre-line">
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
+            asdasdasdasdadasdadadasdasdasdasdadsa
         </div>
     </div>
 </body>
