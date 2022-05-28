@@ -24,7 +24,7 @@
     <title>Fastinno</title>
 </head>
 
-<body>
+<body class="scroll-smooth">
     <!-- the cover as placeholder while the page is loading -->
     <div id="cover" x-ignore>
 
@@ -32,8 +32,11 @@
 
     <!-- the whole application (should be initialized by alpine first) -->
     <div class="flex flex-col w-full h-full" x-data="application" x-cloak>
+        <!-- awesome magic effect -->
+        <div class="bg-white fixed w-full h-[2.75rem] block z-10" x-show="isScrolled"></div>
+
         <!-- the bar on the top, whatever that thing is called -->
-        <div x-ref="topBar" x-model="isScrolled" class="flex w-full h-12 px-5 m-auto mt-5 fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out"
+        <div x-ref="topBar" x-model="isScrolled" class="flex w-full h-12 px-5 m-auto mt-5 fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out z-10"
             :class="isScrolled ? 'max-w-full' : 'max-w-2xl'" x-init="openTopBarOnScroll()"
             @scroll.window="openTopBarOnScroll()">
             <!-- company logo -->
@@ -64,11 +67,40 @@
         <div class="flex flex-col h-full w-full">
             <!-- body stuff -->
             <div class="h-full w-full">
+                <!-- welcoming page -->
+                <div class="h-screen w-full flex relative bg-white">
+                    <div class="flex h-3/4 absolute left-1/2 top-1/2 -translate-y-1/2 rounded-lg ring-black ring-2 ring-offset-4 w-full bg-gradient-to-br from-yellow-200 via-yellow-300 to-yellow-400 transition-all duration-500 ease-in-out"
+                        :class="isScrolled ? 'max-w-[calc(100%-37.8rem)] left-52 -translate-x-0' : 'max-w-2xl -translate-x-1/2'">
+                        <span class="m-auto font-serif text-accent-800 font-bold text-4xl text-center">
+                            The <span class="underline decoration-sky-800">innovative</span> <br> technology company
+                        </span>
+                    </div>
+                </div>
+
+                <div class="h-screen w-full flex relative bg-slate-200">
+                    <div class="flex h-3/4 absolute left-1/2 top-1/2 -translate-y-1/2 rounded-lg ring-black ring-2 ring-offset-4 w-full bg-gradient-to-br from-yellow-200 via-yellow-300 to-yellow-400 transition-all duration-500 ease-in-out"
+                        :class="isScrolled ? 'max-w-[calc(100%-37.8rem)] left-52 -translate-x-0' : 'max-w-2xl -translate-x-1/2'">
+                        <span class="m-auto font-serif text-accent-800 font-bold text-4xl text-center">
+                            The <span class="underline decoration-sky-800">innovative</span> <br> technology company
+                        </span>
+                    </div>
+                </div>
+
+                <div class="h-screen w-full flex relative bg-slate-300">
+                    <div class="flex h-3/4 absolute left-1/2 top-1/2 -translate-y-1/2 rounded-lg ring-black ring-2 ring-offset-4 w-full bg-gradient-to-br from-yellow-200 via-yellow-300 to-yellow-400 transition-all duration-500 ease-in-out"
+                        :class="isScrolled ? 'max-w-[calc(100%-37.8rem)] left-52 -translate-x-0' : 'max-w-2xl -translate-x-1/2'">
+                        <span class="m-auto font-serif text-accent-800 font-bold text-4xl text-center">
+                            The <span class="underline decoration-sky-800">innovative</span> <br> technology company
+                        </span>
+                    </div>
+                </div>
             </div>
 
             <!-- footer stuff -->
-            <div class="w-full h-[30rem] px-3">
-                <div class="flex flex-col w-full h-full bg-sky-800 rounded-t-lg">
+            <div class="w-full h-screen bg-slate-500 relative">
+
+            <div class="w-full h-[30rem] px-3 absolute bottom-0">
+                <div class="flex flex-col w-full h-full bg-accent-600 rounded-t-lg">
                     <!-- footer top -->
                     <div class="flex flex-auto p-5">
                         <div class="h-full flex flex-col flex-auto font-sans">
@@ -110,7 +142,7 @@
                             </template>
                         </div>
                     </div>
-                    <div class="flex w-full h-14 bg-sky-900 px-5 font-sans">
+                    <div class="flex w-full h-14 bg-accent-700 px-5 font-sans">
                         <span class="text-amber-100 my-auto text-sm flex-auto">
                             © 2022 Fastinno. All rights reserved
                         </span>
@@ -123,6 +155,7 @@
                     </div>
                 </div>
 
+            </div>
             </div>
         </div>
     </div>

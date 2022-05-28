@@ -57,6 +57,10 @@ document.addEventListener("alpine:init", () => {
                     link: "/iot-development"
                 },
                 {
+                    title: "Embedded System",
+                    link: "/embedded-system"
+                },
+                {
                     title: "Mini Game Development",
                     link: "/mini-game-development"
                 },
