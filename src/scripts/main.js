@@ -9,6 +9,14 @@ document.addEventListener("alpine:init", () => {
         ],
 
         isScrolled: false,
+
+        openTopBarOnScroll() {
+            if (window.scrollY > this.$el.getBoundingClientRect().top) {
+                this.isScrolled = true;
+            } else {
+                this.isScrolled = false;
+            }
+        },
     }));
 });
 
