@@ -12,7 +12,10 @@
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@200;400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@200;400;800&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/9ba7bfa63e.js" crossorigin="anonymous"></script>
 
     <!-- SCRIPTS -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -33,12 +36,17 @@
         <div x-ref="topBar" x-model="isScrolled" class="flex w-full h-12 px-5 m-auto mt-5 fixed top-0 left-0 right-0 transition-all duration-300 ease-in-out"
             :class="isScrolled ? 'max-w-full' : 'max-w-2xl'" x-init="openTopBarOnScroll()"
             @scroll.window="openTopBarOnScroll()">
+            <!-- company logo -->
             <img class="w-40" src="./assets/logo.svg" alt="Company Logo">
+
+            <!-- fancy line -->
             <div class="
                 bg-black h-[2px] flex-auto self-center my-auto mx-5 relative
                 after:absolute after:-top-[12px] after:-left-1 after:content-['◆'] 
                 before:absolute before:-top-[12px] before:-right-1 before:content-['◆']
             "></div>
+
+            <!-- menu stuff -->
             <div class="flex h-full w-auto">
                 <template x-for="menu in menus">
                     <button class="
@@ -53,60 +61,69 @@
         </div>
 
         <!-- the content of the website, of course -->
-        <div class="whitespace-pre-line">
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
-            asdasdasdasdadasdadadasdasdasdasdadsa
+        <div class="flex flex-col h-full w-full">
+            <!-- body stuff -->
+            <div class="h-full w-full">
+            </div>
+
+            <!-- footer stuff -->
+            <div class="w-full h-[30rem] px-3">
+                <div class="flex flex-col w-full h-full bg-sky-800 rounded-t-lg">
+                    <!-- footer top -->
+                    <div class="flex flex-auto p-5">
+                        <div class="h-full flex flex-col flex-auto font-sans">
+                            <img class="w-40 filter invert" src="./assets/logo.svg" alt="Company Logo">
+                            <div class="w-5/6 mr-96 my-5 bg-amber-300 h-[2px]"></div>
+                            <div class="text-amber-100 text-base font-thin mb-5">
+                                Jakarta, ...
+                            </div>
+                            <div class="text-amber-100 text-base font-normal">
+                                If you are interested to ask for more, go ahead and contact us at
+                                <br>
+                                <span class="text-amber-200 font-bold">
+                                    support@fastinno.id
+                                </span>
+                            </div>
+                        </div>
+                        <div class="h-full flex flex-col flex-auto space-y-2 pt-3">
+                            <span class="text-amber-300 text-2xl font-semibold mb-5 font-serif">
+                                Company
+                            </span>
+                            <template x-for="menu in fullMenus['Company']">
+                                <span class="text-amber-100 text-base font-semibold font-sans" x-text="menu.title"></span>
+                            </template>
+                        </div>
+                        <div class="h-full flex flex-col flex-auto space-y-2 pt-3">
+                            <span class="text-amber-300 text-2xl font-semibold mb-5 font-serif">
+                                Services
+                            </span>
+                            <template x-for="menu in fullMenus['Services']">
+                                <span class="text-amber-100 text-base font-semibold font-sans" x-text="menu.title"></span>
+                            </template>
+                        </div>
+                        <div class="h-full flex flex-col flex-auto space-y-2 pt-3">
+                            <span class="text-amber-300 text-2xl font-semibold mb-5 font-serif">
+                                Connect
+                            </span>
+                            <template x-for="menu in fullMenus['Connect']">
+                                <span class="text-amber-100 text-base font-semibold font-sans" x-text="menu.title"></span>
+                            </template>
+                        </div>
+                    </div>
+                    <div class="flex w-full h-14 bg-sky-900 px-5 font-sans">
+                        <span class="text-amber-100 my-auto text-sm flex-auto">
+                            © 2022 Fastinno. All rights reserved
+                        </span>
+                        <div class="flex w-auto h-full self-end text-amber-100 space-x-4">
+                            <i class="fa-brands fa-github-square text-3xl my-auto shadow-lg"></i>
+                            <i class="fa-brands fa-twitter-square text-3xl my-auto shadow-lg"></i>
+                            <i class="fa-brands fa-linkedin text-3xl my-auto shadow-lg"></i>
+                            <i class="fa-brands fa-instagram-square text-3xl my-auto shadow-lg"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </body>

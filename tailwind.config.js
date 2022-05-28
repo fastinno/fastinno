@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       fontFamily: {
         "serif": ["Grenze", ...defaultTheme.fontFamily.serif],
+        "sans": ["Oxygen", ...defaultTheme.fontFamily.sans],
       },
 
       colors: {
