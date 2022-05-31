@@ -8,8 +8,27 @@ document.addEventListener("alpine:init", () => {
             "Contact Us"
         ],
 
+        socialMedias: [
+            {
+                iconClass: "fa-brands fa-github-square",
+                link: "https://github.com/fastinno"
+            },
+            {
+                iconClass: "fa-brands fa-twitter-square",
+                link: ""
+            },
+            {
+                iconClass: "fa-brands fa-linkedin",
+                link: ""
+            },
+            {
+                iconClass: "fa-brands fa-instagram-square",
+                link: ""
+            },
+        ],
+
         fullMenus: {
-            "Company": [
+            Company: [
                 {
                     title: "About Us",
                     link: "/about-us"
@@ -31,7 +50,7 @@ document.addEventListener("alpine:init", () => {
                     link: "/open-source"
                 }
             ],
-            "Services": [
+            Services: [
                 {
                     title: "Mobile App Development",
                     link: "/mobile-app-development"
@@ -69,7 +88,7 @@ document.addEventListener("alpine:init", () => {
                     link: "/custom-software-solution"
                 }
             ],
-            "Connect": [                
+            Connect: [                
                 {
                     title: "Contact Us",
                     link: "/contact-us"
@@ -84,7 +103,17 @@ document.addEventListener("alpine:init", () => {
         isScrolled: false,
 
         openTopBarOnScroll() {
-            if (window.scrollY > this.$el.getBoundingClientRect().top) {
+            // move up the top bar when page is scrolled to the end
+            if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight && document.body.scrollHeight != 0) {
+                this.$refs.topBar.classList.add("-mt-10")
+                this.$refs.topBar.classList.remove("mt-5")
+            } else {
+                this.$refs.topBar.classList.add("mt-5")
+                this.$refs.topBar.classList.remove("-mt-10")
+            }
+
+            // widen up the top bar when page is scrolled more than the top bar itself
+            if (window.scrollY > this.$refs.topBar.getBoundingClientRect().top) {
                 this.isScrolled = true;
             } else {
                 this.isScrolled = false;
