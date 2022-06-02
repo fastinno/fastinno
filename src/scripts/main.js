@@ -2,10 +2,22 @@
 document.addEventListener("alpine:init", () => {
     Alpine.data("application", () => ({
         menus: [
-            "About",
-            "Services",
-            "Portfolios",
-            "Contact Us"
+            {
+                title: "About",
+                link: "/company/about-us"
+            },
+            {
+                title: "Services",
+                link: "#servicesPage"
+            },
+            {
+                title: "Portfolios",
+                link: "/company/portfolios"
+            },
+            {
+                title: "Contact Us",
+                link: "/connect/contact-us"
+            }
         ],
 
         socialMedias: [
