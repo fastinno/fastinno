@@ -102,7 +102,7 @@ document.addEventListener("alpine:init", () => {
 
         isScrolled: false,
 
-        openTopBarOnScroll() {
+        doSomethingOnScroll() {
             // move up the top bar when page is scrolled to the end
             if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight && document.body.scrollHeight != 0) {
                 this.$refs.topBar.classList.add("-mt-10")
