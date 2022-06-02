@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- portfolio page -->
-                <div class="h-screen w-full relative bg-white flex flex-col" x-ref="portfoliosPage">
+                <div class="h-screen w-full bg-white flex flex-col" x-ref="portfoliosPage">
                     <div
                         class="mx-auto h-[calc(100%-13rem)] w-full max-w-[calc(100%-37.8rem)] -translate-x-[5.9rem] my-4 flex flex-col">
                         <div class="m-auto font-sans text-2xl">
@@ -123,7 +123,7 @@
                 </div>
 
                 <!-- services page -->
-                <div class="h-screen w-full relative bg-white flex" x-ref="servicesPage">
+                <div class="h-screen w-full bg-white flex" x-ref="servicesPage">
                     <div class="flex flex-col m-auto w-full">
                         <div class="flex mx-auto max-w-[calc(100%-37.8rem)] -translate-x-[5.9rem] w-full p-1">
                             <div class="m-auto text-center">
@@ -140,7 +140,7 @@
                                 <template x-for="(menu, index) in fullMenus['Services']">
                                     <div class="flex align"
                                         x-bind:class="(index + 1) % 2 == 0 ? '-translate-x-4' : 'translate-x-4'">
-                                        <div class="flex p-2 w-12 my-auto relative bg-black rounded-lg text-white">
+                                        <div class="flex p-2 w-12 my-auto bg-black rounded-lg text-white">
                                             <span class="m-auto" x-text="index + 1"></span>
                                         </div>
                                         <span class="my-auto ml-4" x-text="menu.title"></span>
@@ -152,7 +152,7 @@
                 </div>
 
                 <!-- contacts page -->
-                <div class="h-auto w-full relative bg-white flex" x-ref="contactsPage">
+                <div class="h-auto w-full bg-white flex" x-ref="contactsPage">
                     <div
                         class="flex h-40 mx-auto max-w-[calc(100%-37.8rem)] -translate-x-[5.9rem] mb-2 rounded-lg ring-black ring-2 ring-offset-4 w-full bg-gradient-to-br from-yellow-200 via-yellow-300 to-yellow-400 p-1">
                         <div class="m-auto text-center">
@@ -169,8 +169,25 @@
             </div>
 
             <!-- footer stuff -->
-            <div class="w-full h-screen bg-white relative" x-ref="footer">
-                <div class="w-full h-[30rem] px-3 absolute bottom-0">
+            <div class="w-full h-screen bg-white flex flex-col" x-ref="footer">
+                <!-- footer addon content -->
+                <div class="w-full flex-auto mt-[2.75rem] flex">
+                    <div class="flex flex-col gap-2 m-auto items-center font-sans text-3xl">
+                        <span>
+
+                        To put simple, we can create everything, you just have to ask for it.
+                        </span>
+                        <span>
+
+                        So go ahead and contact us by
+                                <a class="bg-amber-200 font-bold text-accent-500 px-2 hover:px-3 hover:py-1 transition-all"
+                                    href="/connect/contact-us">going here</a>.
+                        </span>
+                    </div>
+                </div>
+
+                <!-- footer detail content -->
+                <div class="w-full h-[30rem] px-3">
                     <div class="flex flex-col w-full h-full bg-accent-600 rounded-t-lg">
                         <!-- footer top -->
                         <div class="flex flex-auto p-5">
