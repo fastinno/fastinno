@@ -48,6 +48,13 @@ module.exports = function(grunt) {
         src: '**',
         dest: 'dist/scripts/',
       },
+
+      assets: {
+        expand: true,
+        cwd: 'src/assets',
+        src: '**',
+        dest: 'dist/assets/',
+      },
     },
 
     // HTML minifier
