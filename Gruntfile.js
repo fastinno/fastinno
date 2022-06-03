@@ -130,15 +130,15 @@ module.exports = function(grunt) {
           let bottom = src.match(/(?=<\/head>)(.*)/g)[0]
 
           // Rename css source inside link tag
-          var regex = new RegExp(`<link href=\\"(.*)\\.css\\" rel=\\"stylesheet\\">`, 'g')
+          var regex = new RegExp(`<link href=\\"/dist(.*)\\.css\\" rel=\\"stylesheet\\">`, 'g')
           head = head.replace(regex, `<link href="$1.min.css" rel="stylesheet">`);
 
           // Rename js source inside script tag with defer mode
-          var regex = new RegExp(`<script src=\\"(.*)\\.js\\" defer="defer"></script>`, 'g')
+          var regex = new RegExp(`<script src=\\"/dist(.*)\\.js\\" defer="defer"></script>`, 'g')
           head = head.replace(regex, `<script src="$1.min.js" defer="defer"></script>`);
 
           // Rename js source inside script tag without defer mode
-          var regex = new RegExp(`<script src=\\"(.*)\\.js\\"></script>`, 'g')
+          var regex = new RegExp(`<script src=\\"/dist(.*)\\.js\\"></script>`, 'g')
           head = head.replace(regex, `<script src="$1.min.js"></script>`);
           
           grunt.file.write(mapping.dest, `${top}${head}${bottom}`)
