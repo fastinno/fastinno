@@ -20,25 +20,6 @@ document.addEventListener("alpine:init", () => {
             }
         ],
 
-        socialMedias: [
-            {
-                iconClass: "fa-brands fa-github-square",
-                link: "https://github.com/fastinno"
-            },
-            {
-                iconClass: "fa-brands fa-twitter-square",
-                link: ""
-            },
-            {
-                iconClass: "fa-brands fa-linkedin",
-                link: ""
-            },
-            {
-                iconClass: "fa-brands fa-instagram-square",
-                link: ""
-            },
-        ],
-
         fullMenus: {
             Company: [
                 {

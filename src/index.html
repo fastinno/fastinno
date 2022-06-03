@@ -6,6 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
+    <link rel="manifest" href="./assets/site.webmanifest">
+
     <!-- STYLES -->
     <link href="/dist/styles/main.css" rel="stylesheet">
 
@@ -145,7 +152,13 @@
                                         <div class="flex p-2 w-12 my-auto bg-black rounded-lg text-white">
                                             <span class="m-auto" x-text="index + 1"></span>
                                         </div>
-                                        <span class="my-auto ml-4" x-text="menu.title"></span>
+                                        <a class="
+                                            my-auto ml-4 flex transition relative
+                                            after:[''] after:w-0 after:h-1 after:block after:transition-all after:bg-amber-300 after:absolute after:bottom-0 after:translate-y-1 after:left-0
+                                            hover:translate-x-3 hover:after:w-full
+                                        " x-bind:href="'/services' + menu.link">
+                                            <span class="m-auto" x-text="menu.title"></span>
+                                        </a>
                                     </div>
                                 </template>
                             </div>
@@ -198,7 +211,7 @@
                                 <div class="w-5/6 my-5 bg-amber-300 h-[2px]"></div>
                                 <div class="text-amber-100 text-base font-thin mb-5 w-5/6">
                                     Ruko Kawasan Niaga Citra Gran Blok R15 Nomor 21-23 Jalan Alternatif Cibubur,
-                                    Kecamatan Jatisampurna, Kota Bekasi
+                                    Kecamatan Jatisampurna, Kota Bekasi.
                                 </div>
                                 <div class="text-amber-100 text-base font-normal">
                                     If you are interested to ask for more, go ahead and contact us at
