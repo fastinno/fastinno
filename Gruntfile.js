@@ -15,7 +15,7 @@ module.exports = function(grunt) {
           'dist/scripts/main.min.js': ['src/scripts/**/*.js']
         },
         options: {
-          compilation_level: 'SIMPLE',
+          compilation_level: 'ADVANCED',
           create_source_map: 'dist/scripts/main.min.js.map',
           output_wrapper: '(function(){\n%output%\n}).call(this)\n//# sourceMappingURL=main.min.js.map'
         }

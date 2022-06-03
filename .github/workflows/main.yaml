@@ -17,15 +17,17 @@ jobs:
       - name: Checkout the repository 
         uses: actions/checkout@v3
 
-      - name: Install dependency 
-        uses: borales/actions-yarn@v2.3.0
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
-          cmd: install
+          node-version: '18'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
 
       - name: Build the codebase 
-        uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
+        run: yarn build
       
       - name: Deploy the codebase
         uses: JamesIves/github-pages-deploy-action@v4.3.3
