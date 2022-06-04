@@ -4,19 +4,19 @@ document.addEventListener("alpine:init", () => {
         menus: [
             {
                 title: "About",
-                link: "/company/about-us"
+                link: "/company/about-us.html"
             },
             {
                 title: "Services",
-                link: "#servicesPage"
+                link: "/#servicesPage"
             },
             {
                 title: "Portfolios",
-                link: "/company/portfolios"
+                link: "/company/portfolios.html"
             },
             {
                 title: "Contact Us",
-                link: "/connect/contact-us"
+                link: "/connect/contact-us.html"
             }
         ],
 

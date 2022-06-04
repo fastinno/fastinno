@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = function(grunt) {
   require('google-closure-compiler').grunt(grunt, {
     platform: ['native', 'java', 'javascript'],
@@ -66,7 +68,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          cwd: 'src',
+          cwd: 'dist',
           src: ['*.html'],
           dest: 'dist'
         }]
@@ -119,7 +121,7 @@ module.exports = function(grunt) {
 
   // Register Custom Tasks
   grunt.registerTask('rename-file-sources', 
-    'Rename all file sources inside html file to production based one',
+    'Rename all file sources inside html files to production based one',
     function() {
       grunt.file.expandMapping('dist/*.html', '').forEach(mapping => {
         let src = grunt.file.read(mapping.src[0])
@@ -149,12 +151,36 @@ module.exports = function(grunt) {
       });
     }
   )
+  
+  grunt.registerTask('modify-htmls', 
+    'Modify all html files to production based one',
+    function() {
+      grunt.file.expandMapping('src/*.html', 'dist/', {
+        rename: function(dest, matchedSrcPath, _) {
+          return path.join(dest, matchedSrcPath.replace(/src\//g, ''))
+        }
+      }).forEach(mapping => {
+        let src = grunt.file.read(mapping.src[0])
+
+        try {
+          // Remove "/src" from source html files to generate correct absolute link
+          var regex = new RegExp(`x-bind:href=\\"\\'/src(.*)\\' \\+ (.+)\\"`, 'g')
+          src = src.replace(regex, `x-bind:href="'$1' + $2"`);
+
+          grunt.file.write(mapping.dest, `${src}`)
+          grunt.log.ok(`File ${mapping.dest} successfully modified`)
+        } catch (error) {
+          grunt.log.error(`File ${mapping.dest} error (${error})`) 
+        }
+      });
+    }
+  )
 
   // Register Tasks
   grunt.registerTask('compile-javascript', ['closure-compiler'])
   grunt.registerTask('compile-tailwindcss', ['postcss'])
   grunt.registerTask('compile-all', ['copy', 'postcss', 'closure-compiler'])
-  grunt.registerTask('compile-production', ['compile-all', 'htmlmin', 'cssmin', 'rename-file-sources'])
+  grunt.registerTask('compile-production', ['compile-all', 'modify-htmls', 'htmlmin', 'cssmin', 'rename-file-sources'])
 
   // Register Watcher Tasks
   grunt.registerTask('watch-javascript', ['watch:closure-compiler'])

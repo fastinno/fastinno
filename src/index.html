@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon-16x16.png">
-    <link rel="manifest" href="./assets/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="./assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="./assets/favicon/site.webmanifest">
 
     <!-- STYLES -->
     <link href="/dist/styles/main.css" rel="stylesheet">
@@ -70,7 +70,7 @@
                         after:content-[''] after:w-full after:h-[4px] after:bg-sky-800 after:rounded-full after:-translate-y-2 after:block after:opacity-0 after:transition-transform
                         first-of-type:ml-0 
                         last-of-type:mr-0
-                    " x-text="menu.title" x-bind:href="menu.link"></a>
+                    " x-text="menu.title" x-bind:href="'/src' + menu.link"></a>
                 </template>
             </div>
         </div>
@@ -156,7 +156,7 @@
                                             my-auto ml-4 flex transition relative
                                             after:[''] after:w-0 after:h-1 after:block after:transition-all after:bg-amber-300 after:absolute after:bottom-0 after:translate-y-1 after:left-0
                                             hover:translate-x-3 hover:after:w-full
-                                        " x-bind:href="'/services' + menu.link">
+                                        " x-bind:href="'/src/services' + menu.link + '.html'">
                                             <span class="m-auto" x-text="menu.title"></span>
                                         </a>
                                     </div>
@@ -226,7 +226,7 @@
                                     Company
                                 </span>
                                 <template x-for="menu in fullMenus['Company']">
-                                    <a x-bind:href="'/company' + menu.link">
+                                    <a x-bind:href="'/src/company' + menu.link + '.html'">
                                         <span
                                             class="text-amber-100 hover:text-amber-300 text-base font-semibold font-sans hover:"
                                             x-text="menu.title"></span>
@@ -238,7 +238,7 @@
                                     Services
                                 </span>
                                 <template x-for="menu in fullMenus['Services']">
-                                    <a x-bind:href="'/services' + menu.link">
+                                    <a x-bind:href="'/src/services' + menu.link + '.html'">
                                         <span
                                             class="text-amber-100 hover:text-amber-300 text-base font-semibold font-sans"
                                             x-text="menu.title"></span>
@@ -250,7 +250,7 @@
                                     Connect
                                 </span>
                                 <template x-for="menu in fullMenus['Connect']">
-                                    <a x-bind:href="'/connect' + menu.link">
+                                    <a x-bind:href="'/src/connect' + menu.link + '.html'">
                                         <span
                                             class="text-amber-100 hover:text-amber-300 text-base font-semibold font-sans"
                                             x-text="menu.title"></span>
