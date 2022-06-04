@@ -4,39 +4,20 @@ document.addEventListener("alpine:init", () => {
         menus: [
             {
                 title: "About",
-                link: "/company/about-us"
+                link: "/company/about-us.html"
             },
             {
                 title: "Services",
-                link: "#servicesPage"
+                link: "/#servicesPage"
             },
             {
                 title: "Portfolios",
-                link: "/company/portfolios"
+                link: "/company/portfolios.html"
             },
             {
                 title: "Contact Us",
-                link: "/connect/contact-us"
+                link: "/connect/contact-us.html"
             }
-        ],
-
-        socialMedias: [
-            {
-                iconClass: "fa-brands fa-github-square",
-                link: "https://github.com/fastinno"
-            },
-            {
-                iconClass: "fa-brands fa-twitter-square",
-                link: ""
-            },
-            {
-                iconClass: "fa-brands fa-linkedin",
-                link: ""
-            },
-            {
-                iconClass: "fa-brands fa-instagram-square",
-                link: ""
-            },
         ],
 
         fullMenus: {
