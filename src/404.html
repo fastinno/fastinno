@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/x-icon" href="/src/assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/src/assets/favicon/site.webmanifest">
+
+    <!-- STYLES -->
+    <link href="/dist/styles/main.css" rel="stylesheet">
+
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Grenze:wght@200;400;800&family=Oxygen:wght@300;400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- ICONS -->
+    <script src="https://kit.fontawesome.com/9ba7bfa63e.js" crossorigin="anonymous"></script>
+
+    <!-- SCRIPTS -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="/dist/scripts/main.js"></script>
+
+    <title>Fastinno | 404</title>
+</head>
+
+<body>
+    <!-- the cover as placeholder while the page is loading -->
+    <div id="cover" x-ignore>
+
+    </div>
+
+    <!-- the whole application (should be initialized by alpine first) -->
+    <div class="flex flex-col w-full h-screen overflow-hidden" x-data="application" x-cloak>
+        <div class="m-auto text-center font-mono text-2xl flex flex-col gap-4 w-full max-w-2xl">
+            <!-- fancy line -->
+            <div class="
+                bg-black h-[2px] w-full flex-auto self-center my-auto mx-5 relative
+                after:absolute after:-top-[15px] after:-left-1 after:content-['◆'] 
+                before:absolute before:-top-[15px] before:-right-1 before:content-['◆']
+            "></div>
+
+            <div class="my-4 flex flex-col gap-2">
+                <span>
+                    Stay out of the void! <br> Lets get back 
+                    <a class="bg-accent-500 text-sky-100 px-2 hover:px-3 hover:py-1 transition-all"
+                        href="/src/">to home</a> now
+                </span>
+                <span x-text="'we could not find this (' + window.location.href + ') in any of our resources'" 
+                    class="font-sans text-sm text-gray-700"></span>
+            </div>
+
+            <!-- fancy line -->
+            <div class="
+                bg-black h-[2px] w-full flex-auto self-center my-auto mx-5 relative
+                after:absolute after:-top-[15px] after:-left-1 after:content-['◆'] 
+                before:absolute before:-top-[15px] before:-right-1 before:content-['◆']
+            "></div>
+        </div>
+    </div>
+</body>
+
+</html>
