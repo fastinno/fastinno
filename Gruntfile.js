@@ -69,7 +69,7 @@ module.exports = function(grunt) {
         files: [{
           expand: true,
           cwd: 'dist',
-          src: ['*.html'],
+          src: ['**/*.html'],
           dest: 'dist'
         }]
       }
@@ -123,7 +123,7 @@ module.exports = function(grunt) {
   grunt.registerTask('rename-file-sources', 
     'Rename all file sources inside html files to production based one',
     function() {
-      grunt.file.expandMapping('dist/*.html', '').forEach(mapping => {
+      grunt.file.expandMapping('dist/**/*.html', '').forEach(mapping => {
         let src = grunt.file.read(mapping.src[0])
 
         try {
@@ -155,17 +155,25 @@ module.exports = function(grunt) {
   grunt.registerTask('modify-htmls', 
     'Modify all html files to production based one',
     function() {
-      grunt.file.expandMapping('src/*.html', 'dist/', {
+      grunt.file.expandMapping('src/**/*.html', 'dist/', {
         rename: function(dest, matchedSrcPath, _) {
-          return path.join(dest, matchedSrcPath.replace(/src\//g, ''))
+          return path.join(dest, matchedSrcPath.replace(/^src\//g, ''))
         }
       }).forEach(mapping => {
         let src = grunt.file.read(mapping.src[0])
 
         try {
-          // Remove "/src" from source html files to generate correct absolute link
+          // Remove "/src" from `x-bind:href` to generate correct absolute link
           var regex = new RegExp(`x-bind:href=\\"\\'/src(.*)\\' \\+ (.+)\\"`, 'g')
           src = src.replace(regex, `x-bind:href="'$1' + $2"`);
+
+          // Remove "/src" from `href` to generate correct absolute link
+          var regex = new RegExp(`href=\\"/src(.*)\\"`, 'g')
+          src = src.replace(regex, `href="$1"`);
+
+          // Remove "/src" from `src` to generate correct absolute link
+          var regex = new RegExp(`src=\\"/src(.*)\\"`, 'g')
+          src = src.replace(regex, `src="$1"`);
 
           grunt.file.write(mapping.dest, `${src}`)
           grunt.log.ok(`File ${mapping.dest} successfully modified`)
